@@ -1,5 +1,5 @@
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-  <!-- Evento Selecionado -->
+  
   <div>
     <label for="evento" class="form-label">Evento Selecionado:</label>
     <select id="evento" formControlName="evento" class="form-control" [ngClass]="{'is-invalid': formulario.get('evento')?.invalid && formulario.get('evento')?.touched}">
@@ -14,7 +14,6 @@
     </div>
   </div>
 
-  <!-- Modalidade -->
   <div>
     <label class="form-label">Modalidade:</label>
     <div>
@@ -30,7 +29,7 @@
     </div>
   </div>
 
-  <!-- Datas -->
+  
   <div>
     <label for="dataInicio" class="form-label">Data de Início:</label>
     <input type="date" id="dataInicio" formControlName="dataInicio" class="form-control" [ngClass]="{'is-invalid': formulario.get('dataInicio')?.invalid && formulario.get('dataInicio')?.touched}" />
@@ -46,7 +45,7 @@
     </div>
   </div>
 
-  <!-- Adicionar Participante -->
+  
   <div>
     <h3>Adicionar Participante</h3>
     <div>
@@ -89,7 +88,7 @@
     <button type="button" class="btn btn-success" (click)="adicionarParticipante()">Adicionar Participante</button>
   </div>
 
-  <!-- Lista de Participantes -->
+  
   <div>
     <h3>Lista de Participantes</h3>
     <div *ngFor="let participante of participantes; let i = index">
@@ -103,6 +102,6 @@
     </div>
   </div>
 
-  <!-- Botão de Enviar -->
-  <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid || participantes.length === 0">Enviar</button>
+  
+  <button type="submit" class="btn btn-primary" [disabled]="participantes.length === 0">Enviar</button>
 </form>

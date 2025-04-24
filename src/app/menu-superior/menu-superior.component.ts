@@ -102,17 +102,18 @@ export class MenuSuperiorComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.formulario.valid && this.participantes.length > 0) {
-      console.log('Dados do formulário:', {
-        ...this.formulario.value,
-        participantes: this.participantes
-      });
-      alert('Formulário enviado com sucesso!');
-      localStorage.removeItem('formulario');
-      this.formulario.reset();
-      this.participantes = [];
-    } else {
-      alert('Por favor, preencha todos os campos obrigatórios e adicione pelo menos um participante.');
-    }
+    
+    // Dados do formulário incluindo o array de participantes
+    const dadosFormulario = {
+      ...this.formulario.value,
+      participantes: this.participantes
+    };
+
+    console.log('Dados do formulário enviados:', dadosFormulario);
+
+    alert('Formulário enviado com sucesso!');
+    localStorage.removeItem('formulario'); 
+    this.formulario.reset(); 
+    this.participantes = []; 
   }
 }
